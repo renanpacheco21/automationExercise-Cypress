@@ -11,6 +11,6 @@ module.exports = defineConfig({
   },
 
   e2e: {
-    baseUrl: "https://www.automationexercise.com/",
+    baseUrl: "https://www.automationexercise.com",
   },
 });
