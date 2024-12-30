@@ -59,6 +59,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 │   ├── e2e                 # Testes end-to-end
 │   ├── fixtures            # Dados estáticos, como arquivos JSON usados nos testes
 │   ├── plugins             # Arquivos de configuração de plugins
+|   ├── reports             # Relatórios gerados (HTML, JSON, etc.)
 │   └── support             # Custom commands e configurações globais
 │       ├── commands.js     # Definições de comandos personalizados do Cypress
 │       ├── e2e.js          # Configuração global para testes e2e
@@ -69,9 +70,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 ├── node_modules            # Dependências instaladas (ignorar no controle de versão)
 ├── README.md               # Documentação do projeto
 ├── .gitignore              # Arquivo para ignorar pastas/arquivos no Git
-└── reports                 # Relatórios gerados (HTML, JSON, etc.)
-    ├── mochawesome         # Relatórios específicos do Mochawesome
-    └── screenshots         # Screenshots capturados durante os testes
+
 
 ```
 
