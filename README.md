@@ -57,13 +57,14 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 .
 ├── cypress
 │   ├── e2e                 # Testes end-to-end
+|       ├── interface       # Casos de testes da interface gráfica
+│       └── api             # Casos de testes de integração das APIs
 │   ├── fixtures            # Dados estáticos, como arquivos JSON usados nos testes
 │   ├── plugins             # Arquivos de configuração de plugins
 |   ├── reports             # Relatórios gerados (HTML, JSON, etc.)
 │   └── support             # Custom commands e configurações globais
 │       ├── commands.js     # Definições de comandos personalizados do Cypress
-│       ├── e2e.js          # Configuração global para testes e2e
-│       └── index.js        # Arquivo de inicialização para suporte
+│       └── e2e.js          # Configuração global para testes e2e
 ├── cypress.config.js       # Configuração principal do Cypress
 ├── package.json            # Gerenciador de dependências e scripts do projeto
 ├── package-lock.json       # Controle de versões das dependências instaladas
