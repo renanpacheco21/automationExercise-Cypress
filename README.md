@@ -54,14 +54,25 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 ## :file_folder: Estrutura do Projeto
 ```
 .
+.
 ├── cypress
-│   ├── fixtures      # Dados de teste e arquivos mock
-│   ├── integration   # Scripts de teste
-│   ├── plugins       # Plugins e comandos personalizados
-│   └── support       # Helpers e configurações personalizadas
-├── cypress.config.js # Arquivo de configuração do Cypress
-├── package.json      # Dependências do projeto
-└── README.md         # Documentação do projeto
+│   ├── e2e                 # Testes end-to-end
+│   ├── fixtures            # Dados estáticos, como arquivos JSON usados nos testes
+│   ├── plugins             # Arquivos de configuração de plugins
+│   └── support             # Custom commands e configurações globais
+│       ├── commands.js     # Definições de comandos personalizados do Cypress
+│       ├── e2e.js          # Configuração global para testes e2e
+│       └── index.js        # Arquivo de inicialização para suporte
+├── cypress.config.js       # Configuração principal do Cypress
+├── package.json            # Gerenciador de dependências e scripts do projeto
+├── package-lock.json       # Controle de versões das dependências instaladas
+├── node_modules            # Dependências instaladas (ignorar no controle de versão)
+├── README.md               # Documentação do projeto
+├── .gitignore              # Arquivo para ignorar pastas/arquivos no Git
+└── reports                 # Relatórios gerados (HTML, JSON, etc.)
+    ├── mochawesome         # Relatórios específicos do Mochawesome
+    └── screenshots         # Screenshots capturados durante os testes
+
 ```
 
 ---
