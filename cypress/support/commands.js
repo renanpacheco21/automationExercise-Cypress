@@ -65,3 +65,28 @@ Cypress.Commands.add("deleteUser", () => {
   cy.contains("Account Deleted!");
   cy.get('[data-qa="continue-button"]').should("be.visible").click();
 });
+
+Cypress.Commands.add(
+  "login",
+  (
+    email = Cypress.env("email"),
+    user = Cypress.env("user"),
+    password = Cypress.env("password")
+  ) => {
+    const login = () => {
+      cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
+      cy.contains("Signup / Login").should("be.visible").click();
+      cy.contains("Login to your account");
+      cy.get('[data-qa="login-email"]').type(email);
+      cy.get('[data-qa="login-password"]').type(password);
+      cy.get('[data-qa="login-button"]').should("be.visible").click();
+      cy.contains(`Logged in as ${Cypress.env("user")}`);
+    };
+
+    login();
+  }
+);
+
+
+
+

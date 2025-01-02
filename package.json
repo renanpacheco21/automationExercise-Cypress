@@ -1,4 +1,18 @@
 {
+  "name": "automationExercise-Cypress",
+  "version": "1.0.0",
+  "description": "Repositório do projeto de elaboração da automação de casos de testes do site https://www.automationexercise.com/",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanpacheco21/automationExercise-Cypress"
+  },
+  "author": "Renan Pachecod de Matos",
+  "license": "MIT",
+  "homepage": "https://github.com/renanpacheco21/automationExercise-Cypress/blob/main/README.md",
   "devDependencies": {
     "cypress": "^13.17.0",
     "mochawesome": "^7.1.3",
