@@ -4,6 +4,7 @@ describe("Casos de testes Automation Exercise", () => {
   });
 
   it("Registrar novo usuário", () => {
-    cy.newUser();
+    cy.createUser();
+    cy.deleteUser();
   });
 });

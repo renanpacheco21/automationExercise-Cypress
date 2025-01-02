@@ -1,16 +1,20 @@
 Cypress.Commands.add(
-  "newUser",
-  (email = Cypress.env("email"), password = Cypress.env("password")) => {
-    const login = () => {
+  "createUser",
+  (
+    email = Cypress.env("email"),
+    user = Cypress.env("user"),
+    password = Cypress.env("password")
+  ) => {
+    const createUser = () => {
       cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
-      cy.contains("Signup / Login").click();
+      cy.contains("Signup / Login").should("be.visible").click();
       cy.contains("New User Signup!");
-      cy.get('[data-qa="signup-name"]').type("Renan Pacheco");
+      cy.get('[data-qa="signup-name"]').type(user);
       cy.get('[data-qa="signup-email"]').type(email);
-      cy.contains("button", "Signup").click();
+      cy.contains("button", "Signup").should("be.visible").click();
       cy.contains("Enter Account Information");
       cy.get("#id_gender1").check().should("be.checked");
-      cy.get('[data-qa="name"]').should("have.value", "Renan Pacheco");
+      cy.get('[data-qa="name"]').should("have.value", user);
       cy.get('[data-qa="email"]').should("have.value", email);
       cy.get('[data-qa="password"]').type(password, { log: false });
       cy.get('[data-qa="days"]').select("21").should("have.value", "21");
@@ -46,8 +50,18 @@ Cypress.Commands.add(
       cy.get('[data-qa="mobile_number"]')
         .type("5512341234")
         .should("have.value", "5512341234");
-      cy.contains("button", "Create Account").click();
+      cy.contains("button", "Create Account").should("be.visible").click();
+      cy.contains("Account Created!");
+      cy.get('[data-qa="continue-button"]').should("be.visible").click();
+      cy.contains(`Logged in as ${Cypress.env("user")}`);
     };
-    login();
+
+    createUser();
   }
 );
+
+Cypress.Commands.add("deleteUser", () => {
+  cy.contains("Delete Account").should("be.visible").click();
+  cy.contains("Account Deleted!");
+  cy.get('[data-qa="continue-button"]').should("be.visible").click();
+});
