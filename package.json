@@ -4,7 +4,9 @@
   "description": "Repositório do projeto de elaboração da automação de casos de testes do site https://www.automationexercise.com/",
   "main": "cypress.config.js",
   "scripts": {
-    "test": "cypress run"
+    "test": "cypress run",
+    "test:report": "cypress run && npm run generate-report",
+    "generate-report": "start cypress/reports/mochawesome.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
     "cypress": "^13.17.0",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.2.0",
+    "open": "^10.1.0"
   }
 }
