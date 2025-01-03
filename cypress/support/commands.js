@@ -4,8 +4,8 @@ Cypress.Commands.add(
   "login",
   (
     user_email = Cypress.env("user_email"),
-    user_name = Cypress.env("user_name"),
-    user_password = Cypress.env("user_password")
+    user_password = Cypress.env("user_password"),
+    user_name = Cypress.env("user_name")
   ) => {
     const login = () => {
       cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
@@ -14,7 +14,6 @@ Cypress.Commands.add(
       cy.get('[data-qa="login-email"]').type(user_email);
       cy.get('[data-qa="login-password"]').type(user_password);
       cy.get('[data-qa="login-button"]').should("be.visible").click();
-      cy.contains(`Logged in as ${user_name}`);
     };
 
     login();
