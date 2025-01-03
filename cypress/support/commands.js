@@ -4,7 +4,7 @@ Cypress.Commands.add(
   "login",
   (
     user_email = Cypress.env("user_email"),
-    user_password = Cypress.env("user_password"),
+    user_password = Cypress.env("user_password")
   ) => {
     const login = () => {
       cy.contains("Signup / Login").should("be.visible").click();
@@ -83,4 +83,10 @@ Cypress.Commands.add("deleteUser", () => {
   cy.contains("Delete Account").should("be.visible").click();
   cy.contains("Account Deleted!");
   cy.get('[data-qa="continue-button"]').should("be.visible").click();
+});
+
+Cypress.Commands.add("acessProducts", () => {
+  cy.contains("Products").should("be.visible").click();
+  cy.contains("All Products");
+  cy.get(".features_items").should("be.visible");
 });
