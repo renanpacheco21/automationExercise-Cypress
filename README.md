@@ -101,14 +101,9 @@ Este projeto utiliza o **Mochawesome** para geração de relatórios em HTML.
    npx cypress run
    ```
 
-2. Una os resultados em JSON (se necessário):
+2. Gere o relatório em HTML:
    ```bash
-   npx mochawesome-merge cypress/reports/*.json > cypress/reports/combined.json
-   ```
-
-3. Gere o relatório em HTML:
-   ```bash
-   npx marge cypress/reports/combined.json -f report -o cypress/reports
+   npm run test:report
    ```
 
 O relatório estará disponível na pasta `cypress/reports`.

@@ -3,7 +3,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.visit("/");
   });
 
-  it("Logout correto", () => {
+  it("4 - Logout correto", () => {
     const user_name = Cypress.env("user_name");
 
     cy.login();

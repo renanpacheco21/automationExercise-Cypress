@@ -5,7 +5,6 @@ Cypress.Commands.add(
   (
     user_email = Cypress.env("user_email"),
     user_password = Cypress.env("user_password"),
-    user_name = Cypress.env("user_name")
   ) => {
     const login = () => {
       cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
