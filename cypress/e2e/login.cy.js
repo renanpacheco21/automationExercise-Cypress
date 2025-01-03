@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 describe("Casos de testes Automation Exercise", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
   });
 
   it("2 - Login com email e senha corretos", () => {

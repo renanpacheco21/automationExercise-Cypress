@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 describe("Casos de testes Automation Exercise", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
   });
 
   it("1 - Registra novo usuário", () => {
@@ -13,7 +14,6 @@ describe("Casos de testes Automation Exercise", () => {
   it("5 - Registra usuário com email existente", () => {
     const user_email = Cypress.env("user_email");
 
-    cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
     cy.contains("Signup / Login").should("be.visible").click();
     cy.contains("New User Signup!");
     cy.get('[data-qa="signup-name"]').type(faker.person.fullName());

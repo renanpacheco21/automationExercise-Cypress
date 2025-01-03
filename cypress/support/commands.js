@@ -7,7 +7,6 @@ Cypress.Commands.add(
     user_password = Cypress.env("user_password"),
   ) => {
     const login = () => {
-      cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
       cy.contains("Signup / Login").should("be.visible").click();
       cy.contains("Login to your account");
       cy.get('[data-qa="login-email"]').type(user_email);
@@ -27,7 +26,6 @@ Cypress.Commands.add(
     password = faker.internet.password()
   ) => {
     const createUser = () => {
-      cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
       cy.contains("Signup / Login").should("be.visible").click();
       cy.contains("New User Signup!");
       cy.get('[data-qa="signup-name"]').type(user);

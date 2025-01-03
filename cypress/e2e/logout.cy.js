@@ -1,6 +1,7 @@
 describe("Casos de testes Automation Exercise", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
   });
 
   it("4 - Logout correto", () => {
