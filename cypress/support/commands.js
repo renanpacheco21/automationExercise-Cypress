@@ -10,7 +10,7 @@ Cypress.Commands.add(
       cy.contains("Signup / Login").should("be.visible").click();
       cy.contains("Login to your account");
       cy.get('[data-qa="login-email"]').type(user_email);
-      cy.get('[data-qa="login-password"]').type(user_password);
+      cy.get('[data-qa="login-password"]').type(user_password, { log: false });
       cy.get('[data-qa="login-button"]').should("be.visible").click();
     };
 
