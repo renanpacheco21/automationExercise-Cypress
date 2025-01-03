@@ -1,18 +1,20 @@
+import { faker } from "@faker-js/faker";
+
 Cypress.Commands.add(
   "login",
   (
-    email = Cypress.env("email"),
-    user = Cypress.env("user"),
-    password = Cypress.env("password")
+    user_email = Cypress.env("user_email"),
+    user_name = Cypress.env("user_name"),
+    user_password = Cypress.env("user_password")
   ) => {
     const login = () => {
       cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
       cy.contains("Signup / Login").should("be.visible").click();
       cy.contains("Login to your account");
-      cy.get('[data-qa="login-email"]').type(email);
-      cy.get('[data-qa="login-password"]').type(password);
+      cy.get('[data-qa="login-email"]').type(user_email);
+      cy.get('[data-qa="login-password"]').type(user_password);
       cy.get('[data-qa="login-button"]').should("be.visible").click();
-      cy.contains(`Logged in as ${user}`);
+      cy.contains(`Logged in as ${user_name}`);
     };
 
     login();
@@ -22,9 +24,9 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   "createUser",
   (
-    email = Cypress.env("email"),
-    user = Cypress.env("user"),
-    password = Cypress.env("password")
+    user = faker.person.fullName(),
+    email = faker.internet.exampleEmail(),
+    password = faker.internet.password()
   ) => {
     const createUser = () => {
       cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
@@ -74,7 +76,7 @@ Cypress.Commands.add(
       cy.contains("button", "Create Account").should("be.visible").click();
       cy.contains("Account Created!");
       cy.get('[data-qa="continue-button"]').should("be.visible").click();
-      cy.contains(`Logged in as ${Cypress.env("user")}`);
+      cy.contains(`Logged in as ${user}`);
     };
 
     createUser();
