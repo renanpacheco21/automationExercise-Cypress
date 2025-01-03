@@ -19,7 +19,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get(".product-information > h2").should("be.visible");
   });
 
-  it.only("Pesquisa produto", () => {
+  it.only("9 - Pesquisa produto", () => {
     const nameProduct = 'T-Shirt'
 
     cy.acessProducts();
