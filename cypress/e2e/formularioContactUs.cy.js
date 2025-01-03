@@ -6,7 +6,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.url().should("be.equal", `${Cypress.config("baseUrl")}/`);
   });
 
-  it("Preenche formulário contact us com anexo", () => {
+  it("6 - Preenche formulário contact us com anexo", () => {
     cy.contains("Contact us").should("be.visible").click();
     cy.contains("Get In Touch");
     cy.get('[data-qa="name"]').type(faker.person.fullName());
