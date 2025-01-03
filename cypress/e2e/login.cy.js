@@ -3,10 +3,6 @@ describe("Casos de testes Automation Exercise", () => {
     cy.visit("/");
   });
 
-  it("Registra novo usuário", () => {
-    cy.createUser();
-    cy.deleteUser();
-  });
 
   it("Login com email e senha corretos", () => {
     cy.createUser();
