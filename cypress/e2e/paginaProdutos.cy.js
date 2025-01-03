@@ -14,8 +14,18 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get(".product-information")
       .should("contain.text", "Category")
       .and("contain.text", "Availability")
-      .and('contain.text', 'Condition')
-      .and('contain.text', 'Brand');
-    cy.get(".product-information > h2").should('be.visible');
+      .and("contain.text", "Condition")
+      .and("contain.text", "Brand");
+    cy.get(".product-information > h2").should("be.visible");
+  });
+
+  it.only("Pesquisa produto", () => {
+    const nameProduct = 'T-Shirt'
+
+    cy.acessProducts();
+    cy.get("#search_product").type(nameProduct);
+    cy.get("#submit_search").click();
+    cy.contains("Searched Products");
+    cy.contains(".features_items", nameProduct);
   });
 });
