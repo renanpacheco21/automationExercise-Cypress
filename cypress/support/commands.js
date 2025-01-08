@@ -90,3 +90,25 @@ Cypress.Commands.add("acessProducts", () => {
   cy.contains("All Products");
   cy.get(".features_items").should("be.visible");
 });
+
+Cypress.Commands.add("proceedCheckout", () => {
+  cy.contains("Proceed To Checkout").should("be.visible").click();
+  cy.contains("Address Details");
+  cy.contains("Review Your Order");
+  cy.get(".form-control").type(faker.lorem.paragraph());
+  cy.contains("Place Order").should("be.visible").click();
+});
+
+Cypress.Commands.add("paymentDetails", () => {
+  cy.get('[data-qa="name-on-card"]').type(faker.person.fullName());
+  cy.get('[data-qa="card-number"]').type(faker.finance.creditCardNumber());
+  cy.get('[data-qa="cvc"]').type(faker.finance.creditCardCVV());
+  cy.get('[data-qa="expiry-month"]').type(
+    faker.number.int({ min: 1, max: 12 }).toString().padStart(2, "0")
+  );
+  cy.get('[data-qa="expiry-year"]').type(
+    faker.number.int({ min: 2025, max: 2100 })
+  );
+  cy.contains("Pay and Confirm Order").should("be.visible").click();
+  cy.contains("Congratulations! Your order has been confirmed!");
+});
