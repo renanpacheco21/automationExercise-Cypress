@@ -5,10 +5,7 @@ describe("Casos de testes Automation Exercise", () => {
   });
 
   it("14 - Registra novo usuário na página de pedidos", () => {
-    cy.get('[data-product-id="1"]').eq(0).click();
-    cy.contains("Continue Shopping").should("be.visible").click();
-    cy.contains("Cart").should("be.visible").click();
-    cy.contains("Shopping Cart").should("be.visible");
+    cy.addProductToCart();
     cy.contains("Proceed To Checkout").should("be.visible").click();
     cy.get(".modal-body > :nth-child(2) > a > u").should("be.visible").click();
     cy.createUser();
@@ -18,12 +15,20 @@ describe("Casos de testes Automation Exercise", () => {
     cy.deleteUser();
   });
 
-  it.only("15 - Registra novo usuário antes de fazer pedidos", () => {
+  it("15 - Registra novo usuário antes de fazer pedidos", () => {
     cy.createUser();
-    cy.get('[data-product-id="1"]').eq(0).click();
-    cy.contains("Continue Shopping").should("be.visible").click();
-    cy.contains("Cart").should("be.visible").click();
-    cy.contains("Shopping Cart").should("be.visible");
+    cy.addProductToCart();
+    cy.proceedCheckout();
+    cy.paymentDetails();
+    cy.deleteUser();
+  });
+
+  it("16 - Realiza login antes de fazer pedidos", () => {
+    const user_name = Cypress.env("user_name");
+
+    cy.login();
+    cy.contains(`Logged in as ${user_name}`);
+    cy.addProductToCart();
     cy.proceedCheckout();
     cy.paymentDetails();
     cy.deleteUser();
