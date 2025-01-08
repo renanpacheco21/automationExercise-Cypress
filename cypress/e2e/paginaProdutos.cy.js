@@ -64,9 +64,19 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get(".cart_quantity").should("contain.text", quantidade);
   });
 
-  it.only("17 - Remove produtos do carrinho", () => {
+  it("17 - Remove produtos do carrinho", () => {
     cy.addProductToCart();
-    cy.get(".cart_quantity_delete").should('be.visible').click();
-    cy.contains('Cart is empty!')
+    cy.get(".cart_quantity_delete").should("be.visible").click();
+    cy.contains("Cart is empty!");
+  });
+
+  it.only("18 - Verifica categoria dos produtos", () => {
+    cy.contains("Category");
+    cy.contains('Women').click()
+    cy.contains("Dress").click();
+    cy.contains("Women - Dress Products");
+    cy.contains("Men").click();
+    cy.contains("Jeans").click();
+    cy.contains("Men - Jeans Products");
   });
 });
