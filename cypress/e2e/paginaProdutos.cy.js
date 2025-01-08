@@ -48,7 +48,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get("#product-2 > .cart_total").should("contain.text", "Rs. 400");
   });
 
-  it.only("13 - Verifica quantidade do produto no carrinho", () => {
+  it("13 - Verifica quantidade do produto no carrinho", () => {
     const quantidade = 4;
 
     cy.contains("View Product").eq(0).click();
@@ -62,5 +62,11 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains("Add to cart").should("be.visible").click();
     cy.contains("View Cart").should("be.visible").click();
     cy.get(".cart_quantity").should("contain.text", quantidade);
+  });
+
+  it.only("17 - Remove produtos do carrinho", () => {
+    cy.addProductToCart();
+    cy.get(".cart_quantity_delete").should('be.visible').click();
+    cy.contains('Cart is empty!')
   });
 });
