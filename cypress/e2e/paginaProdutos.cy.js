@@ -102,7 +102,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains(product);
   });
 
-  it.only("Adiciona comentário no produto", () => {
+  it.only("21 - Adiciona comentário no produto", () => {
     cy.acessProducts();
     cy.contains("View Product").eq(0).click();
     cy.contains("Write Your Review");
