@@ -99,7 +99,7 @@ Cypress.Commands.add("searchProducts", (productName) => {
 });
 
 Cypress.Commands.add("addProductToCart", () => {
-   cy.get('[data-product-id="1"]').eq(0).click();
+   cy.get(".add-to-cart").eq(0).click();
    cy.contains("Continue Shopping").should("be.visible").click();
    cy.contains("Cart").should("be.visible").click();
    cy.contains("Shopping Cart").should("be.visible");
