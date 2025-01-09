@@ -91,6 +91,13 @@ Cypress.Commands.add("acessProducts", () => {
   cy.get(".features_items").should("be.visible");
 });
 
+Cypress.Commands.add("searchProducts", (productName) => {
+  cy.get("#search_product").type(productName);
+  cy.get("#submit_search").click();
+  cy.contains("Searched Products");
+  cy.contains(".features_items", productName);
+});
+
 Cypress.Commands.add("addProductToCart", () => {
    cy.get('[data-product-id="1"]').eq(0).click();
    cy.contains("Continue Shopping").should("be.visible").click();

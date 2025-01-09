@@ -19,14 +19,9 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get(".product-information > h2").should("be.visible");
   });
 
-  it("9 - Pesquisa produto", () => {
-    const nameProduct = "T-Shirt";
-
+  it.only("9 - Pesquisa produto", () => {
     cy.acessProducts();
-    cy.get("#search_product").type(nameProduct);
-    cy.get("#submit_search").click();
-    cy.contains("Searched Products");
-    cy.contains(".features_items", nameProduct);
+    cy.searchProducts('T-Shirt');
   });
 
   it("12 - Adiciona produtos no carrinho", () => {
@@ -80,7 +75,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains("Men - Jeans Products");
   });
 
-  it.only("19 - Verifica marca dos produtos", () => {
+  it("19 - Verifica marca dos produtos", () => {
     const brand = "Polo";
     const newBrand = "Madame";
 
