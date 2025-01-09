@@ -113,7 +113,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains("Thank you for your review.");
   });
 
-  it.only("22 - Adiciona item recomendado ao carrinho", () => {
+  it("22 - Adiciona item recomendado ao carrinho", () => {
     cy.scrollTo("bottom");
     cy.contains("recommended items");
     cy.get("#recommended-item-carousel").within(() => {
