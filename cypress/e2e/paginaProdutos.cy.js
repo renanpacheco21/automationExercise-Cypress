@@ -70,13 +70,27 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains("Cart is empty!");
   });
 
-  it.only("18 - Verifica categoria dos produtos", () => {
+  it("18 - Verifica categoria dos produtos", () => {
     cy.contains("Category");
-    cy.contains('Women').click()
+    cy.contains("Women").click();
     cy.contains("Dress").click();
     cy.contains("Women - Dress Products");
     cy.contains("Men").click();
     cy.contains("Jeans").click();
     cy.contains("Men - Jeans Products");
+  });
+
+  it.only("19 - Verifica marca dos produtos", () => {
+    const brand = "Polo";
+    const newBrand = "Madame";
+
+    cy.acessProducts();
+    cy.contains(brand).should("be.visible").click();
+    cy.contains(`Brand - ${brand} Products`);
+    cy.contains(newBrand).should("be.visible").click();
+    cy.location("pathname", { timeout: 1000 }).should(
+      "eq",
+      `/brand_products/${newBrand}`
+    );
   });
 });
