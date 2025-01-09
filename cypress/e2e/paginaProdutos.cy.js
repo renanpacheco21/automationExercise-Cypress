@@ -102,7 +102,7 @@ describe("Casos de testes Automation Exercise", () => {
     cy.contains(product);
   });
 
-  it.only("21 - Adiciona comentário no produto", () => {
+  it("21 - Adiciona comentário no produto", () => {
     cy.acessProducts();
     cy.contains("View Product").eq(0).click();
     cy.contains("Write Your Review");
@@ -111,5 +111,16 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get("#review").type(faker.lorem.paragraph());
     cy.contains("Submit").should("be.visible").click();
     cy.contains("Thank you for your review.");
+  });
+
+  it.only("22 - Adiciona item recomendado ao carrinho", () => {
+    cy.scrollTo("bottom");
+    cy.contains("recommended items");
+    cy.get("#recommended-item-carousel").within(() => {
+      cy.get(".add-to-cart").eq(0).click({ force: true });
+    });
+    cy.contains("View Cart").should("be.visible").click();
+    cy.contains("Shopping Cart");
+    cy.get("#cart_info").should("have.length.greaterThan", 0);
   });
 });
