@@ -19,9 +19,9 @@ describe("Casos de testes Automation Exercise", () => {
     cy.get(".product-information > h2").should("be.visible");
   });
 
-  it.only("9 - Pesquisa produto", () => {
+  it("9 - Pesquisa produto", () => {
     cy.acessProducts();
-    cy.searchProducts('T-Shirt');
+    cy.searchProducts("T-Shirt");
   });
 
   it("12 - Adiciona produtos no carrinho", () => {
@@ -87,5 +87,16 @@ describe("Casos de testes Automation Exercise", () => {
       "eq",
       `/brand_products/${newBrand}`
     );
+  });
+
+  it.only("20 - Pesquisa produtos e verifica o carrinho após o login", () => {
+    const product = "T-Shirt";
+
+    cy.acessProducts();
+    cy.searchProducts(product);
+    cy.addProductToCart();
+    cy.login();
+    cy.contains("Cart").should("be.visible").click();
+    cy.contains(product);
   });
 });
