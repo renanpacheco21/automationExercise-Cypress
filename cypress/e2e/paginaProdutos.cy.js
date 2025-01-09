@@ -1,3 +1,5 @@
+import { faker } from "@faker-js/faker";
+
 describe("Casos de testes Automation Exercise", () => {
   beforeEach(() => {
     cy.visit("/");
@@ -89,7 +91,7 @@ describe("Casos de testes Automation Exercise", () => {
     );
   });
 
-  it.only("20 - Pesquisa produtos e verifica o carrinho após o login", () => {
+  it("20 - Pesquisa produtos e verifica o carrinho após o login", () => {
     const product = "T-Shirt";
 
     cy.acessProducts();
@@ -98,5 +100,16 @@ describe("Casos de testes Automation Exercise", () => {
     cy.login();
     cy.contains("Cart").should("be.visible").click();
     cy.contains(product);
+  });
+
+  it.only("Adiciona comentário no produto", () => {
+    cy.acessProducts();
+    cy.contains("View Product").eq(0).click();
+    cy.contains("Write Your Review");
+    cy.get("#name").type(faker.person.fullName());
+    cy.get("#email").type(faker.internet.email());
+    cy.get("#review").type(faker.lorem.paragraph());
+    cy.contains("Submit").should("be.visible").click();
+    cy.contains("Thank you for your review.");
   });
 });
