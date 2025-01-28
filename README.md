@@ -4,7 +4,7 @@
 Este projeto é uma suíte de testes automatizados desenvolvida com [Cypress](https://www.cypress.io/). Ele foi criado para garantir a qualidade e confiabilidade de aplicações web por meio de testes de ponta a ponta, integração e unidade.
 
 ## :star2: Funcionalidades
-- Testes automatizados para aplicações web
+- Testes automatizados para aplicações web e api
 - Depuração facilitada com a interface gráfica do Cypress
 - Suporte a múltiplos ambientes de teste
 - Relatórios detalhados em HTML utilizando Mochawesome
